@@ -1,31 +1,43 @@
 ---
-# Items that apply to ALL profiles:
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8010/eureka/
+      
+server:
+  port: ${PORT:${SERVER_PORT:0}}   # Select any available port if neither port nor server port are specified.
 
----
+
+# Items that apply to ALL profiles:
 spring:
-  profiles: subject
-words: I,You,He,She,It
+
+ ## MariaDB
+  #datasource:
+    #url: jdbc:mariadb://localhost:3306/testdb
+    #username: root
+    #password: ehrud1234
+    #driver-class-name: org.mariadb.jdbc.Driver
+    
+ datasource:
+  url: jdbc:postgresql://localhost:5432/testdb
+  username: postgres
+  password: 1234
   
----
-spring:
-  profiles: verb
-words: ran,knew,had,saw,bought
-
----
-spring:
-  profiles: article
-words: a,the
-
----
-spring:
-  profiles: adjective
-words: reasonable,leaky,suspicious,ordinary,unlikely
-
----
-spring:
-  profiles: noun
-words: boat,book,vote,seat,backpack,partition,groundhog
+  #Connection Pool
+  hikari:
+   connection-timeout: 20000
+   maximum-pool-size: 10
+ 
+ jpa:
+  database: POSTGRESQL
+  database-platform: org.hibernate.dialect.PostgreSQL95Dialect
+  show-sql: false
+  generate-ddl: false
+  hibernate:
+   ddl-auto: none
+   naming:
+    physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl    
+  properties:
+   hibernate:
+    temp:
+     use_jdbc_metadata_defaults: false
