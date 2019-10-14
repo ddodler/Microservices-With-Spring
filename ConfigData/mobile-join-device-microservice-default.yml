@@ -48,7 +48,7 @@ feign:
       default:    # or feign name
         connectTimeout: 5000  
         readTimeout: 5000
-
+        
  kafka:
   producer:
    bootstrap-servers: localhost:9092
