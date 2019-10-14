@@ -12,13 +12,13 @@ server:
 spring:
  kafka:
   bootstrap-servers: localhost:9092
-   producer:
-    keySerializer: org.apache.kafka.common.serialization.StringSerializer
-    valueSerializer: org.springframework.kafka.support.serializer.JsonSerializer
-   consumer:
-    group-id: group_id
-    keySerializer: org.apache.kafka.common.serialization.StringDeserializer
-    valueSerializer: org.springframework.kafka.support.serializer.JsonDeserializer
+  producer:
+   keySerializer: org.apache.kafka.common.serialization.StringSerializer
+   valueSerializer: org.springframework.kafka.support.serializer.JsonSerializer
+  consumer:
+   group-id: group_id
+   keySerializer: org.apache.kafka.common.serialization.StringDeserializer
+   valueSerializer: org.springframework.kafka.support.serializer.JsonDeserializer
 
  ## MariaDB
   #datasource:
