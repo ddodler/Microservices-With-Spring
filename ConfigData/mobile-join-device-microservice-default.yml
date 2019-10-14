@@ -17,12 +17,10 @@ spring:
    valueSerializer: org.springframework.kafka.support.serializer.JsonSerializer
   consumer:
    group-id: group_id
-   key-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer2
-   value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer2
+   key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+   value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
    properties:
     spring.json.trusted.packages: com.lguplus.model
-    spring.deserializer.key.delegate.class: org.apache.kafka.common.serialization.StringDeserializer
-    spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
 
  ## MariaDB
   #datasource:
