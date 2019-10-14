@@ -50,10 +50,17 @@ feign:
         readTimeout: 5000
 
  kafka:
+  producer:
+   bootstrap-servers: localhost:9092
+   key-serializer: org.apache.kafka.common.serialization.StringSerializer.class
+   value-serializer: org.springframework.kafka.support.serializer.JsonSerializer.class
   consumer:
+   bootstrap-servers: localhost:9092
+   group-id: "group_id"
+   key-deserializer: org.apache.kafka.common.serialization.StringDeserializer.class
+   value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer.class
    properties:
     spring:
      json:
       trusted:
        packages: com.lguplus.model
-   value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
