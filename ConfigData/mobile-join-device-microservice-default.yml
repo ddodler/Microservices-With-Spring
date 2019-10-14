@@ -10,7 +10,34 @@ server:
 
 # Items that apply to ALL profiles:
 spring:
-
+  cloud:
+    stream:
+      bindings:
+        session:
+          producer:
+            useNativeEncoding: true
+          destination: session
+          contentType: application/json
+      kafka:
+        binder:
+          brokers: localhost
+          zkNodes: localhost
+          defaultZkPort: 2181
+          defaultBrokerPort: 9092
+        bindings:
+          session:
+            producer:
+              configuration:
+                value:
+                  serializer: org.springframework.kafka.support.serializer.JsonSerializer
+                key:
+                  serializer: org.apache.kafka.common.serialization.StringSerializer
+            consumer:
+              configuration:
+                value:
+                  serializer: org.springframework.kafka.support.serializer.JsonDeserializer
+                key:
+                  serializer: org.apache.kafka.common.serialization.StringDeserializer
  ## MariaDB
   #datasource:
     #url: jdbc:mariadb://localhost:3306/testdb
@@ -41,18 +68,6 @@ spring:
    hibernate:
     temp:
      use_jdbc_metadata_defaults: false
-  
-  kafka:
-   producer:
-    bootstrap-servers: localhost:9092
-    key-serializer: org.apache.kafka.common.serialization.StringSerializer.class
-    value-serializer: org.springframework.kafka.support.serializer.JsonSerializer.class
-  consumer:
-   bootstrap-servers: localhost:9092
-   group-id: "group_id"
-   key-deserializer: org.apache.kafka.common.serialization.StringDeserializer.class
-   value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer.class
-   
 feign:
   client:
     config:
