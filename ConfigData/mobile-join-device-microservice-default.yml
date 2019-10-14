@@ -15,10 +15,12 @@ spring:
   producer:
    keySerializer: org.apache.kafka.common.serialization.StringSerializer
    valueSerializer: org.springframework.kafka.support.serializer.JsonSerializer
+   properties: 
+    spring.json.trusted.packages: com.lguplus.model
   consumer:
    group-id: group_id
    keySerializer: org.apache.kafka.common.serialization.StringDeserializer
-   valueSerializer: org.springframework.kafka.support.serializer.JsonDeserializer
+   valueSerializer: org.apache.kafka.common.serialization.StringDeserializer
 
  ## MariaDB
   #datasource:
