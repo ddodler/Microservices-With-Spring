@@ -48,3 +48,12 @@ feign:
       default:    # or feign name
         connectTimeout: 5000  
         readTimeout: 5000
+
+ kafka:
+  consumer:
+   properties:
+    spring:
+     json:
+      trusted:
+       packages: com.lguplus.model
+   value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
