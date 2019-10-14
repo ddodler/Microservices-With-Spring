@@ -42,13 +42,9 @@ spring:
     temp:
      use_jdbc_metadata_defaults: false
      
- feign:
+feign:
   client:
     config:
-      default:
-        loggerLevel: BASIC
-        # feign의 전역 timeout 설정 : 5초
-        connectTimeout: 5000
+      default:    # or feign name
+        connectTimeout: 5000  
         readTimeout: 5000
-  post-api.url: https://jsonplaceholder.typicode.com
-  http-bin-api.url: https://httpbin.org
