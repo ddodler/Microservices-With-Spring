@@ -10,16 +10,17 @@ server:
 
 # Items that apply to ALL profiles:
 spring:
+
  kafka:
   producer:
    bootstrap-servers: localhost:9092
     producer:
-     key-serializer: org.apache.kafka.common.serialization.StringSerializer
-     value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+     keySerializer: org.apache.kafka.common.serialization.StringSerializer
+     valueSerializer: org.springframework.kafka.support.serializer.JsonSerializer
     consumer:
      group-id: group_id
-     key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-     value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+     keySerializer: org.apache.kafka.common.serialization.StringDeserializer
+     valueSerializer: org.springframework.kafka.support.serializer.JsonDeserializer
 
  ## MariaDB
   #datasource:
