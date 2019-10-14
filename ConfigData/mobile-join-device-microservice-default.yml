@@ -58,9 +58,4 @@ feign:
    bootstrap-servers: localhost:9092
    group-id: "group_id"
    key-deserializer: org.apache.kafka.common.serialization.StringDeserializer.class
-   value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer.class
-   properties:
-    spring:
-     json:
-      trusted:
-       packages: com.lguplus.model
+   value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer.clas
