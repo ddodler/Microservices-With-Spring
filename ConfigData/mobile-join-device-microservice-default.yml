@@ -22,13 +22,14 @@ spring:
         client-id: test
        cloud:
         stream:
-         bindings:
-          kafka-output:
-           producer:
-            exchangeType: direct
-          kafka-input:
-           consumer:
-            exchangeType: direct
+         kafka:
+          bindings:
+           kafka-output:
+            producer:
+             exchangeType: direct
+           kafka-input:
+            consumer:
+             exchangeType: direct
             
     default-binder: kafka1
     bindings:
