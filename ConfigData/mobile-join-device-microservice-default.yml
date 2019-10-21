@@ -31,14 +31,14 @@ spring:
             consumer:
              exchangeType: direct
             
-    default-binder: kafka1
-    bindings:
-     kafka-output:
-      destination: dvcjoin-evt
-      binder: kafka1
-     kafka-input:
-      destination: dvcjoin-evt
-      binder: kafka1
+   default-binder: kafka1
+   bindings:
+    kafka-output:
+     destination: dvcjoin-evt
+     binder: kafka1
+    kafka-input:
+     destination: dvcjoin-evt
+     binder: kafka1
      
  ## MariaDB
   #datasource:
